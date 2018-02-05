@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./php
+    volumes:
+      - ./php/html/:/var/www/html
+    ports:
+      - 8080:80
+  mail.example.com:
+    image: catatnight/postfix
+    environment:
+      - maildomain=mail.example.com 
+      - smtp_user=user:pwd
+  
